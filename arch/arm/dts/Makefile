@@ -935,6 +935,7 @@ dtb-$(CONFIG_RCAR_GEN3) += \
 	rzv2h-dev.dtb \
 	rzv2h-evk-alpha.dtb \
 	rzv2h-evk-ver1.dtb \
+	onekiwi-rzv2h-4gb.dtb \
 	onekiwi-rzv2h-8gb.dtb \
 	onekiwi-rzv2h-16gb.dtb \
 	onekiwi-rzv2h-dev.dtb

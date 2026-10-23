@@ -245,6 +245,11 @@ config TARGET_ONEKIWI_RZV2H_DEV
 	help
 	  Support for OneKiwi RZ/V2H SOM Platform
 
+config TARGET_ONEKIWI_RZV2H_4GB
+	bool "OneKiwi RZ/V2H 4GB board"
+	help
+	  Support for OneKiwi RZ/V2H SOM Platform
+
 config TARGET_ONEKIWI_RZV2H_8GB
 	bool "OneKiwi RZ/V2H 8GB board"
 	help
@@ -276,6 +281,7 @@ source "board/renesas/rzg2lc-dev/Kconfig"
 source "board/renesas/rzg2ul-dev/Kconfig"
 source "board/renesas/rzv2h-dev/Kconfig"
 source "board/renesas/onekiwi-rzv2h-dev/Kconfig"
+source "board/renesas/onekiwi-rzv2h-4gb/Kconfig"
 source "board/renesas/onekiwi-rzv2h-8gb/Kconfig"
 source "board/renesas/onekiwi-rzv2h-16gb/Kconfig"
 

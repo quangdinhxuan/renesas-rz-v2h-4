@@ -1,0 +1,15 @@
+if TARGET_ONEKIWI_RZV2H_4GB
+
+config SYS_SOC
+	default "rmobile"
+
+config SYS_BOARD
+	default "onekiwi-rzv2h-4gb"
+
+config SYS_VENDOR
+	default "renesas"
+
+config SYS_CONFIG_NAME
+	default "onekiwi-rzv2h-4gb"
+
+endif
