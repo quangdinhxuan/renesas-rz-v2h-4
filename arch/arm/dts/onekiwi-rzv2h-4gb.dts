@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 /*
- * Device Tree Source for OneKiwi RZ/V2H 4GB board
+ * Device Tree Source for the OneKiwi RZ/V2H 4GB board
  *
  * Copyright (C) 2023 Renesas Electronics Corp.
  * Copyright (C) 2025 OneKiwi Technology Co., Ltd
@@ -94,84 +94,43 @@
 /* microSD */
 &sdhi1 {
 	bus-width = <4>;
-	max-frequency = <50000000>;
-	pinctrl-0 = <&sdhi1_pins>;
-	pinctrl-names = "default";
-	vmmc-supply = <&reg_3p3v>;
-	vqmmc-supply = <&reg_3p3v>;
+	sd-uhs-sdr50;
+	sd-uhs-sdr104;
 	status = "okay";
 };
 
 &i2c8 {
-	pinctrl-0 = <&i2c8_pins>;
-	pinctrl-names = "default";
 	status = "okay";
-
-	pmic: pmic@6a {
-		compatible = "renesas,raa215300";
-		reg = <0x6a>;
-		status = "okay";
-	};
 };
 
-/* Ethernet PHY KSZ9031RNXIC  */
 &eth0 {
-	pinctrl-0 = <&eth0_pins>;
-	pinctrl-names = "default";
+	status = "okay";
 	phy-handle = <&phy0>;
 	phy-mode = "rgmii-id";
-	status = "okay";
 
-	mdio0 {
+	mdio {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		phy0: ethernet-phy@7 {
+		phy0: ethernet-phy@0 {
 			compatible = "ethernet-phy-ieee802.3-c22";
-			reg = <7>;
-			rxc-skew-ps = <900>;
-			rxdv-skew-ps = <0>;
-			rxd0-skew-ps = <0>;
-			rxd1-skew-ps = <0>;
-			rxd2-skew-ps = <0>;
-			rxd3-skew-ps = <0>;
-			txc-skew-ps = <900>;
-			txen-skew-ps = <0>;
-			txd0-skew-ps = <0>;
-			txd1-skew-ps = <0>;
-			txd2-skew-ps = <0>;
-			txd3-skew-ps = <0>;
+			reg = <0>;
 		};
 	};
 };
 
-/* Ethernet PHY KSZ9031RNXIC */
 &eth1 {
-	pinctrl-0 = <&eth1_pins>;
-	pinctrl-names = "default";
+	status = "okay";
 	phy-handle = <&phy1>;
 	phy-mode = "rgmii-id";
-	status = "okay";
 
-	mdio1 {
+	mdio {
 		#address-cells = <1>;
 		#size-cells = <0>;
 
-		phy1: ethernet-phy@7 {
+		phy1: ethernet-phy@0 {
 			compatible = "ethernet-phy-ieee802.3-c22";
-			reg = <7>;
-			rxc-skew-ps = <900>;
-			rxdv-skew-ps = <0>;
-			rxd0-skew-ps = <0>;
-			rxd1-skew-ps = <0>;
-			rxd2-skew-ps = <0>;
-			rxd3-skew-ps = <0>;
-			txc-skew-ps = <900>;
-			txen-skew-ps = <0>;
-			txd0-skew-ps = <0>;
-			txd1-skew-ps = <0>;
-			txd2-skew-ps = <0>;
-			txd3-skew-ps = <0>;
+			reg = <0>;
 		};
 	};
 };
