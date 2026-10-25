@@ -55,6 +55,9 @@
 #define CONFIG_SYS_MALLOC_LEN		(64 * 1024 * 1024)
 #define CONFIG_SYS_BOOTM_LEN		(64 << 20)
 
+#define CONFIG_SYS_MEMTEST_START	0x60000000
+#define CONFIG_SYS_MEMTEST_END		0x138000000
+
 //#define CONFIG_SYS_DRAM_TEST
 /* The HF/QSPI layout permits up to 1 MiB large bootloader blob */
 #define CONFIG_BOARD_SIZE_LIMIT		1048576
