@@ -44,7 +44,7 @@
 
 #define DRAM_RSV_SIZE				0x08000000
 #define CONFIG_SYS_SDRAM_BASE		(0x40000000 + DRAM_RSV_SIZE)
-#define CONFIG_SYS_SDRAM_SIZE		(0x100000000u - DRAM_RSV_SIZE) //total 4GB
+#define CONFIG_SYS_SDRAM_SIZE		(0x80000000u - DRAM_RSV_SIZE) // Bank 0: 2GB (minus 128MB TF-A)
 #define CONFIG_SYS_LOAD_ADDR		0x58000000
 #define CONFIG_LOADADDR				CONFIG_SYS_LOAD_ADDR // Default load address for tfpt,bootp...
 #define CONFIG_VERY_BIG_RAM
@@ -56,7 +56,7 @@
 #define CONFIG_SYS_BOOTM_LEN		(64 << 20)
 
 #define CONFIG_SYS_MEMTEST_START	0x60000000
-#define CONFIG_SYS_MEMTEST_END		0x138000000
+#define CONFIG_SYS_MEMTEST_END		0xB8000000
 
 //#define CONFIG_SYS_DRAM_TEST
 /* The HF/QSPI layout permits up to 1 MiB large bootloader blob */
@@ -66,14 +66,14 @@
 #define CONFIG_EXTRA_ENV_SETTINGS \
 	"usb_pgood_delay=2000\0" \
 	"bootm_size=0x10000000\0" \
-	"ocaaddr=0xA0000000 \0" \
+	"ocaaddr=0x80000000 \0" \
 	"ocabin=OpenCV_Bin.bin \0" \
-	"codaddr=0xA7D00000 \0" \
+	"codaddr=0x87D00000 \0" \
 	"codbin=Codec_Bin.bin \0" \
-	"prodemmcbootargs=setenv bootargs rw rootwait earlycon root=/dev/mmcblk0p2 \0" \
-	"prodsd0bootargs=setenv bootargs rw rootwait earlycon root=/dev/mmcblk0p2 \0" \
-	"prodsd1bootargs=setenv bootargs rw rootwait earlycon root=/dev/mmcblk1p2 \0" \
-	"produsbbootargs=setenv bootargs rw rootwait earlycon root=/dev/sda2 \0" \
+	"prodemmcbootargs=setenv bootargs rw rootwait earlycon console=ttySC0,115200 cgroup_disable=memory root=/dev/mmcblk0p2 \0" \
+	"prodsd0bootargs=setenv bootargs rw rootwait earlycon console=ttySC0,115200 cgroup_disable=memory root=/dev/mmcblk0p2 \0" \
+	"prodsd1bootargs=setenv bootargs rw rootwait earlycon console=ttySC0,115200 cgroup_disable=memory root=/dev/mmcblk1p2 \0" \
+	"produsbbootargs=setenv bootargs rw rootwait earlycon console=ttySC0,115200 cgroup_disable=memory root=/dev/sda2 \0" \
 	"bootimage=booti 0x48080000 - 0x48000000 \0" \
 	"emmcload0=ext4load mmc 0:2 0x48080000 boot/Image;ext4load mmc 0:2 0x48000000 boot/onekiwi-rzv2h-4gb.dtb;run prodemmcbootargs \0" \
 	"sd0load0=ext4load mmc 0:2 0x48080000 boot/Image;ext4load mmc 0:2 0x48000000 boot/onekiwi-rzv2h-4gb.dtb;run prodsd0bootargs \0" \
@@ -85,7 +85,7 @@
 	"usbload0=ext4load usb 0:2 0x48080000 boot/Image;ext4load usb 0:2 0x48000000 boot/onekiwi-rzv2h-4gb.dtb;run produsbbootargs \0" \
 	"bootcmd_check=if mmc dev 1; then run sd1load; else run emmcload; fi \0"
 
-#define CONFIG_BOOTCOMMAND	"env default -a;run bootcmd_check;run bootimage"
+#define CONFIG_BOOTCOMMAND	"run bootcmd_check;run bootimage"
 
 /* For board */
 /* Ethernet RAVB */
