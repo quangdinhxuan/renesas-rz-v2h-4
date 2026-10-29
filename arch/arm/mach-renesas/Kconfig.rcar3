@@ -266,6 +266,11 @@ config TARGET_ONEKIWI_RZV2H_8GB
 	help
 	  Support for OneKiwi RZ/V2H Platform
 
+config TARGET_ONEKIWI_RZV2H_4GB
+	bool "OneKiwi RZ/V2H 4GB board"
+	help
+	  Support for OneKiwi RZ/V2H 4GB Platform
+
 endchoice
 
 source "board/renesas/condor/Kconfig"
@@ -285,6 +290,7 @@ source "board/renesas/rzg2lc-dev/Kconfig"
 source "board/renesas/rzg2ul-dev/Kconfig"
 source "board/renesas/rzv2h-dev/Kconfig"
 source "board/renesas/onekiwi-rzv2h-8gb/Kconfig"
+source "board/renesas/onekiwi-rzv2h-4gb/Kconfig"
 source "board/renesas/rzg3e-dev/Kconfig"
 
 config MULTI_DTB_FIT_UNCOMPRESS_SZ
